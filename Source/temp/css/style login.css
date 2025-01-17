@@ -1,0 +1,146 @@
+/* Resetando configurações padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo do corpo */
+body {
+    background-image: url('img/menu.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px; /* Ajuste o tamanho conforme necessário */
+    padding-top: 0px; /* Adicione espaçamento superior */
+}
+
+/* Cabeçalho */
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Container do menu */
+.menu-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Retângulo translúcido com 80% de opacidade */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: whitesmoke;
+}
+
+/* Campos de formulário */
+.menu-container form div {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
+}
+
+.menu-container form div label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.menu-container form div input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.menu-container form div input:focus {
+    border-bottom: 2px solid #00f;
+}
+
+/* Botão de login */
+.menu-container form button {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0, 95, 153, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-container form button:hover {
+    background-color: rgba(0, 64, 128, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Mensagem de erro */
+#error-message {
+    margin-top: 10px;
+    color: red;
+    text-align: left;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .menu-container {
+        padding: 20px;
+    }
+
+    .menu-container form div {
+        margin-bottom: 10px;
+    }
+
+    .menu-container form div input {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .menu-container form button {
+        padding: 10px;
+        font-size: 1.1em;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}

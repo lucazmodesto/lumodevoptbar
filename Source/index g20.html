@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERDAU Ø20</title>
+    <link rel="stylesheet" href="temp/css/style gerdau.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body onload="carregarDados()">  <!-- Carregar dados ao abrir a página -->
+    <header>
+        <h1>GERDAU Ø20mm</h1>
+        <nav>
+            <li><a href="index.html">Menu Principal</a></li>
+        </nav>
+        <nav>
+            <a href="#" onclick="mostrarSecao('cadastro-estoque')">Cadastro de Estoque</a>
+            <a href="#" onclick="mostrarSecao('cadastro-pecas')">Nova otimização</a>
+            <button id="gerar-pdf" onclick="gerarRelatorioPDF()">Imprimir Otimização </button>
+            <button id="gerar-lista-estoque">Gerar Lista Estoque</button>
+        </nav>
+    </header>
+    <main>
+        <h1>Otimizador de Barras</h1>
+        <!-- Seções do formulário e lista -->
+        <section id="cadastro-estoque" class="secao-oculta">
+            <h2>Estoque Atual</h2>
+            <ul id="estoque"></ul>
+            <button id="zerar-estoque" onclick="zerarEstoque()">Zerar Estoque</button>
+        </section>
+        <section id="cadastro-estoque" class="secao-oculta">
+            <h2>Cadastrar Barras no Estoque</h2>
+            <form id="cadastro-barras">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" required>
+                <label for="comprimento">Comprimento da Barra (cm):</label>
+                <input type="number" id="comprimento" required>
+                <button type="submit">Cadastrar Barra</button>
+            </form>
+        </section>
+        <section id="cadastro-pecas" class="secao-oculta">
+            <h2>Cadastrar Peças Requeridas</h2>
+            <form id="cadastro-pecas">
+                <label for="numero-pedido">Número do Pedido:</label>
+                <input type="text" id="numero-pedido" required>
+                <label for="quantidade-peca">Quantidade:</label>
+                <input type="number" id="quantidade-peca" required>
+                <label for="comprimento-peca">Comprimento da Peça (cm):</label>
+                <input type="number" id="comprimento-peca" required>
+                <button type="submit">Cadastrar Peça</button>
+            </form>
+        </section>
+        <section id="cadastro-pecas" class="secao-oculta">
+            <h2>Peças Requeridas</h2>
+            <ul id="pecas"></ul>
+            <button id="excluir-pecas" onclick="excluirTodasPecas()">Excluir Todas as Peças</button>
+            <button id="calcular-corte" onclick="mostrarSecao('resultado-corte')">Calcular Corte</button>
+        </section>
+        <section id="resultado-corte" class="secao-oculta">
+            <h2>Resultado do Corte</h2>
+            <label for="numero-pedido">Número do Pedido:</label>
+            <pre id="resultado-corte"></pre>
+        </section>
+    </main>
+    <script src="temp/js/script g20.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCbQ14Lb19nGbepMVxtlZ0n6sfbQkNXFH4",
+            authDomain: "otimizador-a900f.firebaseapp.com",
+            databaseURL: "https://otimizador-a900f-default-rtdb.firebaseio.com",
+            projectId: "otimizador-a900f",
+            storageBucket: "otimizador-a900f.appspot.com",
+            messagingSenderId: "173721272915",
+            appId: "1:173721272915:web:fd7208796ceedaf94a7ca6",
+            measurementId: "G-QMCSB5YYXV"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optbar</title>
+    <link rel="stylesheet" href="Source/temp/css/style login.css">
+     <link rel="icon" href="Source/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="Source/temp/js/script login.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- Adicione o logo aqui -->
+        <img src="Source/img/logo.png" alt="Logo do Site" class="logo">
+    </header>
+    
+    <div class="menu-container">
+        <h1>Bem Vindo</h1>
+        <form id="login-form">
+            <div>
+                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+    <footer>
+        <p>Todos os direitos reservados &copy; 2025</p>
+        <p>Desenvolvido por <strong>LumoDev</strong></p>
+    </footer>
+</body>
+</html>

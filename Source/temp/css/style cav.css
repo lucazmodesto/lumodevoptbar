@@ -1,0 +1,240 @@
+/* Resetando configurações padrões do navegador - site longo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Atualizando para fonte Roboto */
+}
+
+/* Estilo do corpo */
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Cabeçalho */
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #007acc;
+    margin-bottom: 20px;
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007acc; /* Mudando a cor do texto */
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent; /* Adicionando efeito de underline */
+}
+
+nav a:hover {
+    color: #005f99;
+    border-bottom: 2px solid #005f99; /* Efeito de underline ao passar o mouse */
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Divisões */
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos dentro das seções */
+h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #007acc;
+    padding-bottom: 5px;
+}
+
+/* Labels dos formulários */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Inputs dos formulários */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #007acc;
+    box-shadow: 0 0 8px rgba(0, 122, 204, 0.25);
+    outline: none;
+}
+
+/* Botões */
+button {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #005f99;
+    transform: translateY(-3px);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 122, 204, 0.25);
+}
+
+/* Listas */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+li button {
+    margin-left: auto;
+    background-color: #ff4d4d;
+}
+
+li button:hover {
+    background-color: #ff1a1a;
+}
+
+nav button {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav button:hover {
+    background-color: #005f99;
+    transform: translateY(-3px);
+}
+
+/* Pre Tag */
+pre {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* Seções ocultas */
+.secao-oculta {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a, nav button {
+        padding: 10px 0;
+        border-bottom: none;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    input[type="number"] {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+
+    li {
+        padding: 10px;
+        margin-bottom: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    pre {
+        padding: 10px;
+    }
+}

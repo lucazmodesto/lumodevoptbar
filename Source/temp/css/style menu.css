@@ -1,0 +1,145 @@
+/* Resetando configurações padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo do corpo */
+body {
+    background-image: url('img/menu.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px; /* Ajuste o tamanho conforme necessário */
+    padding-top: 0px; /* Adicione espaçamento superior */
+}
+
+/* Cabeçalho */
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Container do menu */
+.menu-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Retângulo translúcido com 80% de opacidade */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: whitesmoke;
+}
+
+/* Navegação */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 25px 50px;
+    size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+nav ul li a .fa-cut {
+    font-size: 1.5em;
+}
+
+nav ul li a .cavicon {
+    color: #007acc; /* Tesoura azul para Cavicon */
+}
+
+nav ul li a .gerdau {
+    color: #e63946; /* Tesoura vermelha para Gerdau */
+}
+
+nav ul li a:hover {
+    color: #005f99;
+    border-bottom: 2px solid #005f99;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .menu-container {
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+
+    .menu-container form div {
+        margin-bottom: 10px;
+    }
+
+    .menu-container form div input {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .menu-container form button {
+        padding: 10px;
+        font-size: 1.1em;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}
