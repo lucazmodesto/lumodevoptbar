@@ -355,23 +355,31 @@ function gerarRelatorioPDF() {
 function gerarListaEstoquePDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+    
     // Obtém a data e hora atual
     const now = new Date();
     const dataHora = now.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
-    let y = 10;
 
-    doc.setFontSize(16);
-    doc.text("LISTA DE ESTOQUE CAVICON Ø32", 10, y);
-    y += 10;
-    // Adiciona a data e hora ao PDF
-    doc.setFontSize(12);
-    doc.text(`Data e Hora: ${dataHora}`, 10, y);
-    y += 10;
-    doc.setFontSize(12);
-    doc.text("Quantidade | Comprimento (cm) | Peso (kg)", 10, y);
-    y += 10;
-    doc.text("----------------------------------------------------------------", 10, y);
-    y += 10;
+    let y = 10;
+    const margemTopo = 10;
+    const alturaMaxima = 280; // Margem para evitar corte na página
+    const alturaLinha = 10;
+
+    function adicionarCabecalho() {
+        doc.setFontSize(16);
+        doc.text("LISTA DE ESTOQUE CAVICON Ø32", 10, y);
+        y += 10;
+        doc.setFontSize(12);
+        doc.text(`Data e Hora: ${dataHora}`, 10, y);
+        y += 10;
+        doc.setFontSize(12);
+        doc.text("Quantidade | Comprimento (cm) | Peso (kg)", 10, y);
+        y += 10;
+        doc.text("----------------------------------------------------------------", 10, y);
+        y += 10;
+    }
+
+    adicionarCabecalho();
 
     let pesoTotalBarras = 0;
     let pesoTotalPontas = 0;
@@ -384,22 +392,35 @@ function gerarListaEstoquePDF() {
             } else {
                 pesoTotalPontas += parseFloat(peso);
             }
+
+            // Verifica se há espaço para imprimir ou se precisa criar uma nova página
+            if (y + alturaLinha > alturaMaxima) {
+                doc.addPage();
+                y = margemTopo;
+                adicionarCabecalho();
+            }
+
             doc.text(`${b.quantidade} barra(s) de ${b.comprimento}cm (${peso} kg)`, 10, y);
-            y += 10;
+            y += alturaLinha;
         }
     });
 
+    // Adiciona os totais ao final
     y += 10;
+    if (y + 20 > alturaMaxima) {
+        doc.addPage();
+        y = margemTopo;
+        adicionarCabecalho();
+    }
     doc.setFontSize(12);
     doc.text(`Peso total de barras (1200cm): ${pesoTotalBarras.toFixed(2)} kg`, 10, y);
     y += 10;
-    doc.text(`Peso total de Pontas : ${pesoTotalPontas.toFixed(2)} kg`, 10, y);
+    doc.text(`Peso total de Pontas: ${pesoTotalPontas.toFixed(2)} kg`, 10, y);
 
-    // Abre o PDF no navegador
-    const nomeArquivo = prompt("Digite o nome do arquivo (sem extensão):", "lista-estoque");
-    doc.output("dataurlnewwindow");
+    // Pergunta o nome do arquivo e gera o PDF
+    const nomeArquivo = prompt("Digite o nome do arquivo (sem extensão):", "lista-estoque") || "lista-estoque";
+    doc.save(`${nomeArquivo}.pdf`);
 }
 
 // Adiciona o evento de clique ao botão gerar-lista-estoque
 document.getElementById("gerar-lista-estoque").addEventListener("click", gerarListaEstoquePDF);
-
