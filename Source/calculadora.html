@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversão de Barras</title>
+    <style>
+        /* Resetando configurações padrões do navegador */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Estilo do corpo */
+        body {
+            background-image: url('img/menu.jpg'); /* Imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #007acc;
+            margin-bottom: 20px;
+        }
+
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: transparent;
+            color: #007acc;
+            border: 2px solid #007acc;
+            border-radius: 30px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: calc(100% - 20px);
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #007acc;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Barras</h1>
+        <label for="bitola">Escolha a Bitola:</label>
+        <select id="bitola">
+            <option value="2.47">Ø20</option>
+            <option value="3.85">Ø25</option>
+            <option value="6.31">Ø32</option>
+        </select>
+        <label for="peso">Peso Total (kg):</label>
+        <input type="number" id="peso" placeholder="Digite o peso total (kg)">
+        <label for="comprimento">Comprimento da Barra (m):</label>
+        <input type="number" id="comprimento" placeholder="Digite o comprimento da barra (m)">
+        <button onclick="calcularBarras()">Calcular</button>
+        <div id="resultado" class="resultado"></div>
+    </div>
+    <script>
+        function calcularBarras() {
+            const bitola = parseFloat(document.getElementById('bitola').value);
+            const pesoTotal = parseFloat(document.getElementById('peso').value);
+            const comprimento = parseFloat(document.getElementById('comprimento').value);
+            
+            if (!pesoTotal || !comprimento) {
+                document.getElementById('resultado').innerHTML = "Por favor, preencha todos os campos.";
+                return;
+            }
+
+            const pesoPorBarra = comprimento * bitola;
+            const quantidadeBarras = pesoTotal / pesoPorBarra;
+            
+            document.getElementById('resultado').innerHTML = `Quantidade de Barras: ${Math.ceil(quantidadeBarras)}`;
+        }
+    </script>
+</body>
+</html>
